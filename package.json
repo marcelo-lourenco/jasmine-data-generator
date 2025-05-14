@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Example of using Jasmine with the Gerador-BR data generator",
   "scripts": {
-    "test": "jasmine",
+    "test": "npx jasmine",
     "test:report": "jasmine --reporter=jasmine-console-reporter"
   },
   "devDependencies": {
