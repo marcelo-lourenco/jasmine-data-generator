@@ -23,7 +23,5 @@ jobs:
         cache: 'npm'
     - name: Install dependencies
       run: npm install
-    - name: Set execute permission for Jasmine
-      run: chmod +x ./node_modules/.bin/jasmine
     - name: Run Jasmine tests
       run: npm test

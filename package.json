@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "gerador-br": "^1.2.3",
-    "jasmine": "^5.7.1",
+    "jasmine": "^5.1.0",
     "jasmine-console-reporter": "^3.1.0"
   },
   "keywords": [
@@ -17,8 +17,7 @@
     "data generator",
     "test automation",
     "test",
-    "data",
-    "generator"
+    "data"
   ],
   "author": "Marcelo Lourenço <qabi.dev@gmail.com>",
   "license": "MIT"
