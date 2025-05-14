@@ -1,33 +1,32 @@
-import { describe, test } from 'node:test';
-import { strictEqual } from 'node:assert';
-import { email } from '../src/generators/email.js';
-import { apelido } from '../src/generators/apelido.js'
+const { email, apelido } = require('gerador-br'); // Assumindo que 'apelido' também é exportado se necessário, embora não seja usado diretamente nos testes.
 
 describe('Email Generator', () => {
-  test('should generate a valid email address without full name', () => {
+  it('should generate a valid email address without full name', () => {
     const generatedEmail = email();
     const parts = generatedEmail.split('@');
-    strictEqual(parts.length, 2);
-    strictEqual(parts[0].length > 0, true);
-    strictEqual(parts[1].length > 0, true);
+    expect(parts.length).toBe(2);
+    expect(parts[0].length).toBeGreaterThan(0);
+    expect(parts[1].length).toBeGreaterThan(0);
   });
 
-  test('should generate a valid email address with full name', () => {
+  it('should generate a valid email address with full name', () => {
     const fullName = 'John Doe';
     const generatedEmail = email(fullName);
     const parts = generatedEmail.split('@');
-    strictEqual(parts.length, 2);
-    strictEqual(parts[0].length > 0, true);
-    strictEqual(parts[1].length > 0, true);
-    strictEqual(parts[0], fullName.toLowerCase().replace(/ /g, '.').split('.').slice(0, 2)
+    expect(parts.length).toBe(2);
+    expect(parts[0].length).toBeGreaterThan(0);
+    expect(parts[1].length).toBeGreaterThan(0);
+    expect(parts[0]).toBe(fullName.toLowerCase().replace(/ /g, '.').split('.').slice(0, 2)
       .join('.'));
   });
 
-  test('should generate a valid email address with a nickname', () => {
+  it('should generate a valid email address with a nickname (similar to without full name)', () => {
+    // Este teste é funcionalmente idêntico ao primeiro, pois `email()` sem argumentos
+    // já usa um nome/apelido aleatório internamente.
     const generatedEmail = email();
     const parts = generatedEmail.split('@');
-    strictEqual(parts.length, 2);
-    strictEqual(parts[0].length > 0, true);
-    strictEqual(parts[1].length > 0, true);
+    expect(parts.length).toBe(2);
+    expect(parts[0].length).toBeGreaterThan(0);
+    expect(parts[1].length).toBeGreaterThan(0);
   });
 });

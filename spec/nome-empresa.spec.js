@@ -1,17 +1,17 @@
-import { describe, test } from 'node:test';
-import { strictEqual } from 'node:assert';
-import { nomeEmpresa } from '../src/generators/nome-empresa.js';
+const { nomeEmpresa } = require('gerador-br');
 
 describe('nomeEmpresa', () => {
-  test('should generate a valid company name', () => {
+  it('should generate a valid company name', () => {
     const nomeEmpresaGerado = nomeEmpresa();
-    strictEqual(nomeEmpresaGerado.length > 0, true, 'The company name should have a length greater than 0.');
+    expect(nomeEmpresaGerado.length).toBeGreaterThan(0);
   });
-   test('should generate a valid brasilian company name', () => {
+
+  it('should generate a valid brasilian company name', () => {
     const nomeEmpresaGerado = nomeEmpresa("BR");
-    strictEqual(nomeEmpresaGerado.length > 0, true, 'The company name should have a length greater than 0.');
+    expect(nomeEmpresaGerado.length).toBeGreaterThan(0);
   });
-  test('should be a string', () => {
-    strictEqual(typeof nomeEmpresa(), 'string', 'The company name should be a string.');
+
+  it('should be a string', () => {
+    expect(typeof nomeEmpresa()).toBe('string');
   });
 });

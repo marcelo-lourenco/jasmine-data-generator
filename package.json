@@ -1,17 +1,24 @@
 {
   "name": "jasmine-test-project",
   "version": "1.0.0",
-  "description": "A project to demonstrate testing with Jasmine",
-  "main": "src/app.js",
+  "description": "Example of using Jasmine with the Gerador-BR data generator",
   "scripts": {
     "test": "jasmine --reporter=jasmine-console-reporter"
   },
   "devDependencies": {
-    "gerador-br": "^1.2.2",
-    "jasmine": "^3.99.0",
-    "jasmine-reporters": "^2.5.2"
+    "gerador-br": "^1.2.3",
+    "jasmine": "^5.7.1",
+    "jasmine-console-reporter": "^3.1.0"
   },
-  "keywords": [],
-  "author": "marcelolourenco <mlourenco.info@gmail.com>",
-  "license": "ISC"
+  "keywords": [
+    "jasmine",
+    "gerador-br",
+    "data generator",
+    "test automation",
+    "test",
+    "data",
+    "generator"
+  ],
+  "author": "Marcelo Lourenço <qabi.dev@gmail.com>",
+  "license": "MIT"
 }

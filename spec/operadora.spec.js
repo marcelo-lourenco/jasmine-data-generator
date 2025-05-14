@@ -1,26 +1,24 @@
-import { describe, test } from 'node:test';
-import { strictEqual } from 'node:assert';
-import { codigoOperadora } from '../src/generators/operadora.js';
+const { codigoOperadora } = require('gerador-br');
 
 describe('Operadora Generator', () => {
-  test('should generate a random operator code', () => {
+  it('should generate a random operator code', () => {
     const code = codigoOperadora();
-    strictEqual(typeof code, 'number');
-    strictEqual(code > 0, true);
+    expect(typeof code).toBe('number');
+    expect(code).toBeGreaterThan(0);
   });
 
-  test('should generate a valid operator code for a given operator name', () => {
+  it('should generate a valid operator code for a given operator name', () => {
     const operators = ['Claro', 'Oi', 'Tim', 'Vivo'];
     operators.forEach((operator) => {
       const code = codigoOperadora(operator);
-      strictEqual(typeof code, 'number');
-      strictEqual(code > 0, true);
+      expect(typeof code).toBe('number');
+      expect(code).toBeGreaterThan(0);
     });
   });
 
-  test('should return a random operator code if the operator name is invalid', () => {
+  it('should return a random operator code if the operator name is invalid', () => {
     const code = codigoOperadora('InvalidOperator');
-    strictEqual(typeof code, 'number');
-    strictEqual(code > 0, true);
+    expect(typeof code).toBe('number');
+    expect(code).toBeGreaterThan(0);
   });
 });

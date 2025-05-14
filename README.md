@@ -26,7 +26,7 @@ To execute the tests, use the following command:
 npx test
 ```
 
-Test files are located in the `spec` folder. For example, you can run all tests or specify a particular test file such as `gerador-br.spec.js`.
+Test files are located in the `spec` folder.
 
 ## Main Dependencies
 

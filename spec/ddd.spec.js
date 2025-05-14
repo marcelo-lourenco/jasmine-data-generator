@@ -1,20 +1,18 @@
-import { describe, test } from 'node:test';
-import { strictEqual } from 'node:assert';
-import { ddd } from '../src/generators/ddd.js';
+const { ddd } = require('gerador-br');
 
 describe('DDD Generator', () => {
-  test('should generate a random DDD for a given state', () => {
+  it('should generate a random DDD for a given state', () => {
     const states = ['SP', 'RJ', 'MG', 'RS', 'SC'];
     states.forEach((state) => {
       const dddValue = ddd(state);
-      strictEqual(typeof dddValue, 'string');
-      strictEqual(dddValue > 0, true);
+      expect(typeof dddValue).toBe('string');
+      expect(Number(dddValue)).toBeGreaterThan(0);
     });
   });
 
-  test('should generate a random DDD for a random state', () => {
+  it('should generate a random DDD for a random state', () => {
     const dddValue = ddd();
-    strictEqual(typeof dddValue, 'string');
-    strictEqual(dddValue > 0, true);
+    expect(typeof dddValue).toBe('string');
+    expect(Number(dddValue)).toBeGreaterThan(0);
   });
 });

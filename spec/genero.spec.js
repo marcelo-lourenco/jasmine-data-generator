@@ -1,51 +1,49 @@
-import { describe, test } from 'node:test';
-import { strictEqual, ok } from 'node:assert';
-import { genero } from '../src/generators/genero.js';
+const { genero } = require('gerador-br');
 
 describe('Genero Generator', () => {
-  test('should return "Feminino" for input "f"', () => {
-    strictEqual(genero('f'), 'Feminino');
+  it('should return "Feminino" for input "f"', () => {
+    expect(genero('f')).toBe('Feminino');
   });
 
-  test('should return "Feminino" for input "F"', () => {
-    strictEqual(genero('F'), 'Feminino');
+  it('should return "Feminino" for input "F"', () => {
+    expect(genero('F')).toBe('Feminino');
   });
 
-  test('should return "Masculino" for input "m"', () => {
-    strictEqual(genero('m'), 'Masculino');
+  it('should return "Masculino" for input "m"', () => {
+    expect(genero('m')).toBe('Masculino');
   });
 
-  test('should return "Masculino" for input "M"', () => {
-    strictEqual(genero('M'), 'Masculino');
+  it('should return "Masculino" for input "M"', () => {
+    expect(genero('M')).toBe('Masculino');
   });
 
-  test('should return "Intersexo" for input "i"', () => {
-    strictEqual(genero('i'), 'Intersexo');
+  it('should return "Intersexo" for input "i"', () => {
+    expect(genero('i')).toBe('Intersexo');
   });
 
-  test('should return "Intersexo" for input "I"', () => {
-    strictEqual(genero('I'), 'Intersexo');
+  it('should return "Intersexo" for input "I"', () => {
+    expect(genero('I')).toBe('Intersexo');
   });
 
   const randomOutputs = ['Feminino', 'Masculino'];
 
-  test('should return "Feminino" or "Masculino" for null input', () => {
-    ok(randomOutputs.includes(genero(null)));
+  it('should return "Feminino" or "Masculino" for null input', () => {
+    expect(randomOutputs).toContain(genero(null));
   });
 
-  test('should return "Feminino" or "Masculino" for undefined input', () => {
-    ok(randomOutputs.includes(genero(undefined)));
+  it('should return "Feminino" or "Masculino" for undefined input', () => {
+    expect(randomOutputs).toContain(genero(undefined));
   });
 
-  test('should return "Feminino" or "Masculino" for no input', () => {
-    ok(randomOutputs.includes(genero()));
+  it('should return "Feminino" or "Masculino" for no input', () => {
+    expect(randomOutputs).toContain(genero());
   });
 
-  test('should return "Feminino" or "Masculino" for invalid string input "x"', () => {
-    ok(randomOutputs.includes(genero('x')));
+  it('should return "Feminino" or "Masculino" for invalid string input "x"', () => {
+    expect(randomOutputs).toContain(genero('x'));
   });
 
-  test('should return "Feminino" or "Masculino" for invalid numeric input 123', () => {
-    ok(randomOutputs.includes(genero(123)));
+  it('should return "Feminino" or "Masculino" for invalid numeric input 123', () => {
+    expect(randomOutputs).toContain(genero(123));
   });
 });

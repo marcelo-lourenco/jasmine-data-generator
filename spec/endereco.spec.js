@@ -1,53 +1,51 @@
-import { describe, test } from 'node:test';
-import { strictEqual } from 'node:assert';
-import { endereco } from '../src/generators/endereco.js';
+const { endereco } = require('gerador-br');
 
 describe('Endereço Generator', () => {
-  test('should generate a valid address with mask', () => {
+  it('should generate a valid address with mask', () => {
     const addressWithMask = endereco(true);
-    strictEqual(addressWithMask.cep.length, 9);
-    strictEqual(addressWithMask.cep.slice(5, 6), '-');
-    strictEqual(typeof addressWithMask.logradouro, 'string');
-    strictEqual(typeof addressWithMask.numero, 'string');
-    strictEqual(typeof addressWithMask.complemento, 'string');
-    strictEqual(typeof addressWithMask.bairro, 'string');
-    strictEqual(typeof addressWithMask.localidade, 'string');
-    strictEqual(typeof addressWithMask.estado, 'string');
+    expect(addressWithMask.cep.length).toBe(9);
+    expect(addressWithMask.cep.slice(5, 6)).toBe('-');
+    expect(typeof addressWithMask.logradouro).toBe('string');
+    expect(typeof addressWithMask.numero).toBe('string');
+    expect(typeof addressWithMask.complemento).toBe('string');
+    expect(typeof addressWithMask.bairro).toBe('string');
+    expect(typeof addressWithMask.localidade).toBe('string');
+    expect(typeof addressWithMask.estado).toBe('string');
   });
 
-  test('should generate a valid address without mask', () => {
+  it('should generate a valid address without mask', () => {
     const addressWithoutMask = endereco(false);
-    strictEqual(addressWithoutMask.cep.length, 8);
-    strictEqual(addressWithoutMask.cep.includes('-'), false);
-    strictEqual(typeof addressWithoutMask.logradouro, 'string');
-    strictEqual(typeof addressWithoutMask.numero, 'string');
-    strictEqual(typeof addressWithoutMask.complemento, 'string');
-    strictEqual(typeof addressWithoutMask.bairro, 'string');
-    strictEqual(typeof addressWithoutMask.localidade, 'string');
-    strictEqual(typeof addressWithoutMask.estado, 'string');
+    expect(addressWithoutMask.cep.length).toBe(8);
+    expect(addressWithoutMask.cep.includes('-')).toBe(false);
+    expect(typeof addressWithoutMask.logradouro).toBe('string');
+    expect(typeof addressWithoutMask.numero).toBe('string');
+    expect(typeof addressWithoutMask.complemento).toBe('string');
+    expect(typeof addressWithoutMask.bairro).toBe('string');
+    expect(typeof addressWithoutMask.localidade).toBe('string');
+    expect(typeof addressWithoutMask.estado).toBe('string');
   });
 
-  test('should generate a valid address for a specific state with mask', () => {
+  it('should generate a valid address for a specific state with mask', () => {
     const addressWithMaskForSP = endereco(true, 'SP');
-    strictEqual(addressWithMaskForSP.cep.length, 9);
-    strictEqual(addressWithMaskForSP.cep.slice(5, 6), '-');
-    strictEqual(typeof addressWithMaskForSP.logradouro, 'string');
-    strictEqual(typeof addressWithMaskForSP.numero, 'string');
-    strictEqual(typeof addressWithMaskForSP.complemento, 'string');
-    strictEqual(typeof addressWithMaskForSP.bairro, 'string');
-    strictEqual(typeof addressWithMaskForSP.localidade, 'string');
-    strictEqual(addressWithMaskForSP.estado, 'SP');
+    expect(addressWithMaskForSP.cep.length).toBe(9);
+    expect(addressWithMaskForSP.cep.slice(5, 6)).toBe('-');
+    expect(typeof addressWithMaskForSP.logradouro).toBe('string');
+    expect(typeof addressWithMaskForSP.numero).toBe('string');
+    expect(typeof addressWithMaskForSP.complemento).toBe('string');
+    expect(typeof addressWithMaskForSP.bairro).toBe('string');
+    expect(typeof addressWithMaskForSP.localidade).toBe('string');
+    expect(addressWithMaskForSP.estado).toBe('SP');
   });
 
-  test('should generate a valid address for a specific state without mask', () => {
+  it('should generate a valid address for a specific state without mask', () => {
     const addressWithoutMaskForSP = endereco(false, 'SP');
-    strictEqual(addressWithoutMaskForSP.cep.length, 8);
-    strictEqual(addressWithoutMaskForSP.cep.includes('-'), false);
-    strictEqual(typeof addressWithoutMaskForSP.logradouro, 'string');
-    strictEqual(typeof addressWithoutMaskForSP.numero, 'string');
-    strictEqual(typeof addressWithoutMaskForSP.complemento, 'string');
-    strictEqual(typeof addressWithoutMaskForSP.bairro, 'string');
-    strictEqual(typeof addressWithoutMaskForSP.localidade, 'string');
-    strictEqual(addressWithoutMaskForSP.estado, 'SP');
+    expect(addressWithoutMaskForSP.cep.length).toBe(8);
+    expect(addressWithoutMaskForSP.cep.includes('-')).toBe(false);
+    expect(typeof addressWithoutMaskForSP.logradouro).toBe('string');
+    expect(typeof addressWithoutMaskForSP.numero).toBe('string');
+    expect(typeof addressWithoutMaskForSP.complemento).toBe('string');
+    expect(typeof addressWithoutMaskForSP.bairro).toBe('string');
+    expect(typeof addressWithoutMaskForSP.localidade).toBe('string');
+    expect(addressWithoutMaskForSP.estado).toBe('SP');
   });
 });

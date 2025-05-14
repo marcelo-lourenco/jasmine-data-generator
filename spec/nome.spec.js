@@ -1,77 +1,75 @@
-import { describe, test } from 'node:test';
-import { strictEqual } from 'node:assert';
-import { nome } from '../src/generators/nome.js';
+const { nome } = require('gerador-br');
 
 describe('Nome Generator', () => {
-  test('should generate a random name', () => {
+  it('should generate a random name', () => {
     const name = nome.aleatorio();
-    strictEqual(typeof name, 'string');
-    strictEqual(name.length > 0, true);
+    expect(typeof name).toBe('string');
+    expect(name.length).toBeGreaterThan(0);
   });
 
-  test('should generate a random full name', () => {
+  it('should generate a random full name', () => {
     const fullName = nome.aleatorioCompleto();
-    strictEqual(typeof fullName, 'string');
-    strictEqual(fullName.length > 0, true);
+    expect(typeof fullName).toBe('string');
+    expect(fullName.length).toBeGreaterThan(0);
   });
 
-  test('should generate a random male name', () => {
+  it('should generate a random male name', () => {
     const maleName = nome.masculino();
-    strictEqual(typeof maleName, 'string');
-    strictEqual(maleName.length > 0, true);
+    expect(typeof maleName).toBe('string');
+    expect(maleName.length).toBeGreaterThan(0);
   });
 
-  test('should generate a random full male name', () => {
+  it('should generate a random full male name', () => {
     const fullMaleName = nome.masculinoCompleto();
-    strictEqual(typeof fullMaleName, 'string');
-    strictEqual(fullMaleName.length > 0, true);
+    expect(typeof fullMaleName).toBe('string');
+    expect(fullMaleName.length).toBeGreaterThan(0);
   });
 
-  test('should generate a random female name', () => {
+  it('should generate a random female name', () => {
     const femaleName = nome.feminino();
-    strictEqual(typeof femaleName, 'string');
-    strictEqual(femaleName.length > 0, true);
+    expect(typeof femaleName).toBe('string');
+    expect(femaleName.length).toBeGreaterThan(0);
   });
 
-  test('should generate a random full female name', () => {
+  it('should generate a random full female name', () => {
     const fullFemaleName = nome.femininoCompleto();
-    strictEqual(typeof fullFemaleName, 'string');
-    strictEqual(fullFemaleName.length > 0, true);
+    expect(typeof fullFemaleName).toBe('string');
+    expect(fullFemaleName.length).toBeGreaterThan(0);
   });
 
-  test('should generate a random mother name', () => {
+  it('should generate a random mother name', () => {
     const motherName = nome.mae();
-    strictEqual(typeof motherName, 'string');
-    strictEqual(motherName.length > 0, true);
+    expect(typeof motherName).toBe('string');
+    expect(motherName.length).toBeGreaterThan(0);
   });
 
-  test('should generate a random full mother name', () => {
+  it('should generate a random full mother name', () => {
     const fullMotherName = nome.maeCompleto();
-    strictEqual(typeof fullMotherName, 'string');
-    strictEqual(fullMotherName.length > 0, true);
+    expect(typeof fullMotherName).toBe('string');
+    expect(fullMotherName.length).toBeGreaterThan(0);
   });
 
-  test('should generate a random father name', () => {
+  it('should generate a random father name', () => {
     const fatherName = nome.pai();
-    strictEqual(typeof fatherName, 'string');
-    strictEqual(fatherName.length > 0, true);
+    expect(typeof fatherName).toBe('string');
+    expect(fatherName.length).toBeGreaterThan(0);
   });
 
-  test('should generate a random full father name', () => {
+  it('should generate a random full father name', () => {
     const fullFatherName = nome.paiCompleto();
-    strictEqual(typeof fullFatherName, 'string');
-    strictEqual(fullFatherName.length > 0, true);
+    expect(typeof fullFatherName).toBe('string');
+    expect(fullFatherName.length).toBeGreaterThan(0);
   });
 
-  test('should generate a random middle name', () => {
+  it('should generate a random middle name', () => {
     const middleName = nome.doMeio();
-    strictEqual(typeof middleName, 'string');
-    strictEqual(middleName.length > 0, true);
+    expect(typeof middleName).toBe('string');
+    expect(middleName.length).toBeGreaterThan(0);
   });
 
-  test('should generate a random surname', () => {
+  it('should generate a random surname', () => {
     const surname = nome.sobrenome();
-    strictEqual(typeof surname, 'string');
-    strictEqual(surname.length > 0, true);
+    expect(typeof surname).toBe('string');
+    expect(surname.length).toBeGreaterThan(0);
   });
 });

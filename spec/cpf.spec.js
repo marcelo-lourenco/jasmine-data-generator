@@ -1,38 +1,33 @@
-import { describe, test } from 'node:test';
-import { strictEqual } from 'node:assert';
-
-// Este teste garante validar funcionalidade Gerar CPF
-
-import { cpf } from '../src/generators/cpf.js';
+const { cpf } = require('gerador-br');
 
 describe('CPF Generator', () => {
-  test('should generate a valid CPF with mask', () => {
+  it('should generate a valid CPF with mask', () => {
     const cpfWithMask = cpf(true, 'SP');
-    strictEqual(cpfWithMask.length, 14); // 11 digits + 3 separators + 1 hyphen
-    strictEqual(cpfWithMask.match(/\d/g).length, 11); // 11 digits
-    strictEqual(cpfWithMask.match(/\./g).length, 2); // 2 dots
-    strictEqual(cpfWithMask.match(/-/g).length, 1); // 1 hyphen
+    expect(cpfWithMask.length).toBe(14); // 11 digits + 3 separators + 1 hyphen
+    expect(cpfWithMask.match(/\d/g).length).toBe(11); // 11 digits
+    expect(cpfWithMask.match(/\./g).length).toBe(2); // 2 dots
+    expect(cpfWithMask.match(/-/g).length).toBe(1); // 1 hyphen
   });
 
-  test('should generate a valid CPF without mask', () => {
+  it('should generate a valid CPF without mask', () => {
     const cpfWithoutMask = cpf(false, 'RJ');
-    strictEqual(cpfWithoutMask.length, 11); // 11 digits
-    strictEqual(cpfWithoutMask.match(/\d/g).length, 11); // 11 digits
+    expect(cpfWithoutMask.length).toBe(11); // 11 digits
+    expect(cpfWithoutMask.match(/\d/g).length).toBe(11); // 11 digits
   });
 
-  test('should generate a valid CPF with random state', () => {
+  it('should generate a valid CPF with random state', () => {
     const cpfWithRandomState = cpf(true);
-    strictEqual(cpfWithRandomState.length, 14); // 11 digits + 3 separators + 1 hyphen
-    strictEqual(cpfWithRandomState.match(/\d/g).length, 11); // 11 digits
-    strictEqual(cpfWithRandomState.match(/\./g).length, 2); // 2 dots
-    strictEqual(cpfWithRandomState.match(/-/g).length, 1); // 1 hyphen
+    expect(cpfWithRandomState.length).toBe(14); // 11 digits + 3 separators + 1 hyphen
+    expect(cpfWithRandomState.match(/\d/g).length).toBe(11); // 11 digits
+    expect(cpfWithRandomState.match(/\./g).length).toBe(2); // 2 dots
+    expect(cpfWithRandomState.match(/-/g).length).toBe(1); // 1 hyphen
   });
 
-  test('should generate a valid CPF with a specific state', () => {
+  it('should generate a valid CPF with a specific state', () => {
     const cpfWithSpecificState = cpf(true, 'MG');
-    strictEqual(cpfWithSpecificState.length, 14); // 11 digits + 3 separators + 1 hyphen
-    strictEqual(cpfWithSpecificState.match(/\d/g).length, 11); // 11 digits
-    strictEqual(cpfWithSpecificState.match(/\./g).length, 2); // 2 dots
-    strictEqual(cpfWithSpecificState.match(/-/g).length, 1); // 1 hyphen
+    expect(cpfWithSpecificState.length).toBe(14); // 11 digits + 3 separators + 1 hyphen
+    expect(cpfWithSpecificState.match(/\d/g).length).toBe(11); // 11 digits
+    expect(cpfWithSpecificState.match(/\./g).length).toBe(2); // 2 dots
+    expect(cpfWithSpecificState.match(/-/g).length).toBe(1); // 1 hyphen
   });
 });

@@ -1,150 +1,148 @@
-import { describe, test } from 'node:test';
-import { strictEqual, match } from 'node:assert';
-import { inscricaoEstadual } from '../src/generators/inscricao-estadual.js';
+const { inscricaoEstadual } = require('gerador-br');
 
 describe('Inscrição Estadual', () => {
   describe('Validação de formato', () => {
-    test('Deve gerar uma inscrição estadual válida para o Acre (AC)', () => {
+    it('Deve gerar uma inscrição estadual válida para o Acre (AC)', () => {
       const ie = inscricaoEstadual('AC');
-      strictEqual(ie.match(/^\d{2}\.\d{8}\d$/).length, 1);
+      expect(ie).toMatch(/^\d{2}\.\d{8}\d$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para Alagoas (AL)', () => {
+    it('Deve gerar uma inscrição estadual válida para Alagoas (AL)', () => {
       const ie = inscricaoEstadual('AL');
-      strictEqual(ie.match(/^\d{9}$/).length, 1);
+      expect(ie).toMatch(/^\d{9}$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para o Amapá (AP)', () => {
+    it('Deve gerar uma inscrição estadual válida para o Amapá (AP)', () => {
       const ie = inscricaoEstadual('AP');
-      strictEqual(ie.match(/^\d{2}\.\d{7}\d$/).length, 1);
+      expect(ie).toMatch(/^\d{2}\.\d{7}\d$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para o Amazonas (AM)', () => {
+    it('Deve gerar uma inscrição estadual válida para o Amazonas (AM)', () => {
       const ie = inscricaoEstadual('AM');
-      strictEqual(ie.match(/^\d{9}\d$/).length, 1);
+      expect(ie).toMatch(/^\d{9}\d$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para a Bahia (BA)', () => {
+    it('Deve gerar uma inscrição estadual válida para a Bahia (BA)', () => {
       const ie = inscricaoEstadual('BA');
-      strictEqual(ie.match(/^\d{8}-\d{2}$/).length, 1);
+      expect(ie).toMatch(/^\d{8}-\d{2}$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para o Ceará (CE)', () => {
+    it('Deve gerar uma inscrição estadual válida para o Ceará (CE)', () => {
       const ie = inscricaoEstadual('CE');
-      strictEqual(ie.match(/^\d{10}$/).length, 1);
+      expect(ie).toMatch(/^\d{10}$/);
     });
 
-    test('Deve gerar uma inscrição estadual com formato válido para o Distrito Federal (DF)', () => {
+    it('Deve gerar uma inscrição estadual com formato válido para o Distrito Federal (DF)', () => {
       const ie = inscricaoEstadual('DF');
       // Verifica o formato da inscrição estadual "07YY.NNNNNDV"
-      match(ie, /^07\d{2}\.\d{5}\d{2}$/, 'Formato da inscrição estadual inválido');
+      expect(ie).toMatch(/^07\d{2}\.\d{5}\d{2}$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para o Espírito Santo (ES)', () => {
+    it('Deve gerar uma inscrição estadual válida para o Espírito Santo (ES)', () => {
       const ie = inscricaoEstadual('ES');
-      strictEqual(ie.match(/^\d{9}$/).length, 1);
+      expect(ie).toMatch(/^\d{9}$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para Goiás (GO)', () => {
+    it('Deve gerar uma inscrição estadual válida para Goiás (GO)', () => {
       const ie = inscricaoEstadual('GO');
-      strictEqual(ie.match(/^\d{8}\d$/).length, 1);
+      expect(ie).toMatch(/^\d{8}\d$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para o Maranhão (MA)', () => {
+    it('Deve gerar uma inscrição estadual válida para o Maranhão (MA)', () => {
       const ie = inscricaoEstadual('MA');
-      strictEqual(ie.match(/^\d{9}$/).length, 1);
+      expect(ie).toMatch(/^\d{9}$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para Mato Grosso (MT)', () => {
+    it('Deve gerar uma inscrição estadual válida para Mato Grosso (MT)', () => {
       const ie = inscricaoEstadual('MT');
-      strictEqual(ie.match(/^\d{11}$/).length, 1);
+      expect(ie).toMatch(/^\d{11}$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para Mato Grosso do Sul (MS)', () => {
+    it('Deve gerar uma inscrição estadual válida para Mato Grosso do Sul (MS)', () => {
       const ie = inscricaoEstadual('MS');
-      strictEqual(ie.match(/^\d{9}$/).length, 1);
+      expect(ie).toMatch(/^\d{9}$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para Minas Gerais (MG)', () => {
+    it('Deve gerar uma inscrição estadual válida para Minas Gerais (MG)', () => {
       const ie = inscricaoEstadual('MG');
-      strictEqual(ie.match(/^\d{13}$/).length, 1);
+      expect(ie).toMatch(/^\d{13}$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para o Pará (PA)', () => {
+    it('Deve gerar uma inscrição estadual válida para o Pará (PA)', () => {
       const ie = inscricaoEstadual('PA');
-      strictEqual(ie.match(/^\d{9}$/).length, 1);
+      expect(ie).toMatch(/^\d{9}$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para a Paraíba (PB)', () => {
+    it('Deve gerar uma inscrição estadual válida para a Paraíba (PB)', () => {
       const ie = inscricaoEstadual('PB');
-      strictEqual(ie.match(/^\d{9}$/).length, 1);
+      expect(ie).toMatch(/^\d{9}$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para o Paraná (PR)', () => {
+    it('Deve gerar uma inscrição estadual válida para o Paraná (PR)', () => {
       const ie = inscricaoEstadual('PR');
-      match(ie, /^\d{8}-\d{2}$/, 'Formato da inscrição estadual inválido');
+      expect(ie).toMatch(/^\d{8}-\d{2}$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para Pernambuco (PE)', () => {
+    it('Deve gerar uma inscrição estadual válida para Pernambuco (PE)', () => {
       const ie = inscricaoEstadual('PE');
-      strictEqual(ie.match(/^\d{9}$/).length, 1);
+      expect(ie).toMatch(/^\d{9}$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para o Piauí (PI)', () => {
+    it('Deve gerar uma inscrição estadual válida para o Piauí (PI)', () => {
       const ie = inscricaoEstadual('PI');
-      strictEqual(ie.match(/^\d{9}$/).length, 1);
+      expect(ie).toMatch(/^\d{9}$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para o Rio de Janeiro (RJ)', () => {
+    it('Deve gerar uma inscrição estadual válida para o Rio de Janeiro (RJ)', () => {
       const ie = inscricaoEstadual('RJ');
-      strictEqual(ie.match(/^\d{8}\.\d{2}$/).length, 1);
+      expect(ie).toMatch(/^\d{8}\.\d{2}$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para o Rio Grande do Norte (RN)', () => {
+    it('Deve gerar uma inscrição estadual válida para o Rio Grande do Norte (RN)', () => {
       const ie = inscricaoEstadual('RN');
-      strictEqual(ie.match(/^\d{8}-\d$/).length, 1);
+      expect(ie).toMatch(/^\d{8}-\d$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para o Rio Grande do Sul (RS)', () => {
+    it('Deve gerar uma inscrição estadual válida para o Rio Grande do Sul (RS)', () => {
       const ie = inscricaoEstadual('RS');
-      strictEqual(ie.match(/^\d{9}$/).length, 1);
+      expect(ie).toMatch(/^\d{9}$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para Rondônia (RO)', () => {
+    it('Deve gerar uma inscrição estadual válida para Rondônia (RO)', () => {
       const ie = inscricaoEstadual('RO');
-      strictEqual(ie.match(/^\d{8}-\d{1}$/).length, 1);
+      expect(ie).toMatch(/^\d{8}-\d{1}$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para Roraima (RR)', () => {
+    it('Deve gerar uma inscrição estadual válida para Roraima (RR)', () => {
       const ie = inscricaoEstadual('RR');
-      strictEqual(ie.match(/^\d{8}$/).length, 1);
+      expect(ie).toMatch(/^\d{8}$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para Santa Catarina (SC)', () => {
+    it('Deve gerar uma inscrição estadual válida para Santa Catarina (SC)', () => {
       const ie = inscricaoEstadual('SC');
-      strictEqual(ie.match(/^\d{9}$/).length, 1);
+      expect(ie).toMatch(/^\d{9}$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para São Paulo (SP)', () => {
+    it('Deve gerar uma inscrição estadual válida para São Paulo (SP)', () => {
       const ie = inscricaoEstadual('SP');
-      strictEqual(ie.match(/^\d{12}\d$/).length, 1);
+      expect(ie).toMatch(/^\d{12}\d$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para Sergipe (SE)', () => {
+    it('Deve gerar uma inscrição estadual válida para Sergipe (SE)', () => {
       const ie = inscricaoEstadual('SE');
-      strictEqual(ie.match(/^\d{9}$/).length, 1);
+      expect(ie).toMatch(/^\d{9}$/);
     });
 
-    test('Deve gerar uma inscrição estadual válida para o Tocantins (TO)', () => {
+    it('Deve gerar uma inscrição estadual válida para o Tocantins (TO)', () => {
       const ie = inscricaoEstadual('TO');
-      strictEqual(ie.match(/^\d{8}-\d{1}$/).length, 1);
+      expect(ie).toMatch(/^\d{8}-\d{1}$/);
     });
   });
 
   describe('Validação de estado aleatório', () => {
-    test('Deve gerar uma inscrição estadual com um estado aleatório quando nenhum estado é informado', () => {
+    it('Deve gerar uma inscrição estadual com um estado aleatório quando nenhum estado é informado', () => {
       const ie = inscricaoEstadual();
-      strictEqual(typeof ie, 'string');
+      expect(typeof ie).toBe('string');
     });
   });
 });

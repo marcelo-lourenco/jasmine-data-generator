@@ -1,21 +1,24 @@
-import { describe, test } from 'node:test';
-import { strictEqual } from 'node:assert';
-import { passaporte } from '../src/generators/passaporte.js';
+const { passaporte } = require('gerador-br');
 
 describe('Passport Generator', () => {
-  test('should generate a valid passport number', () => {
-    strictEqual(passaporte().length, 9); // 2 letters + 7 digits
-    strictEqual(passaporte().match(/[A-Z]{2}/).length, 1); // 2 uppercase letters
-    strictEqual(passaporte().match(/\d{7}/).length, 1); // 7 digits
+  it('should generate a valid passport number', () => {
+    const passportNumber = passaporte();
+    expect(passportNumber.length).toBe(9); // 2 letters + 7 digits
+    // Verifica se os dois primeiros caracteres são letras maiúsculas
+    expect(passportNumber.slice(0, 2)).toMatch(/[A-Z]{2}/);
+    // Verifica se os últimos sete caracteres são dígitos
+    expect(passportNumber.slice(2)).toMatch(/\d{7}/);
   });
 
-  test('should start with two uppercase letters', () => {
+  it('should start with two uppercase letters', () => {
     const letters = passaporte().slice(0, 2);
-    strictEqual(letters.match(/[A-Z]/g).length, 2); // 2 uppercase letters
+    expect(letters).toMatch(/[A-Z]{2}/);
+    expect(letters.length).toBe(2);
   });
 
-  test('should end with seven digits', () => {
+  it('should end with seven digits', () => {
     const numbers = passaporte().slice(2);
-    strictEqual(numbers.match(/\d{7}/).length, 1); // 7 digits
+    expect(numbers).toMatch(/\d{7}/);
+    expect(numbers.length).toBe(7);
   });
 });
