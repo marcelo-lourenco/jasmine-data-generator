@@ -1,0 +1,17 @@
+{
+  "name": "jasmine-test-project",
+  "version": "1.0.0",
+  "description": "A project to demonstrate testing with Jasmine",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "jasmine --reporter=jasmine-console-reporter"
+  },
+  "devDependencies": {
+    "gerador-br": "^1.2.2",
+    "jasmine": "^3.99.0",
+    "jasmine-reporters": "^2.5.2"
+  },
+  "keywords": [],
+  "author": "marcelolourenco <mlourenco.info@gmail.com>",
+  "license": "ISC"
+}
